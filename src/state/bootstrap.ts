@@ -6,6 +6,12 @@
  * - Migraciones silenciosas: divisiones canónicas, materialesConfig,
  *   coef.iva=0 (R11 H7), cotizaciones → cotizacionesPorRubro (H1 comparativa).
  */
+import {
+  SEED_CATEGORIAS_LEGAL,
+  SEED_TIPOS_PLANO,
+  mergeCategoriasLegalConSeed,
+  mergeTiposPlanoConSeed
+} from '../core';
 import type { Catalogo, Obra } from '../core';
 
 export function mergeCatalogoConSeed(guardadoRaw: string | null, seedFresh: Catalogo): Catalogo {
@@ -21,7 +27,9 @@ export function mergeCatalogoConSeed(guardadoRaw: string | null, seedFresh: Cata
         biblioteca: Array.isArray(parsed.biblioteca) ? parsed.biblioteca : seedFresh.biblioteca,
         deletedApus: Array.isArray(parsed.deletedApus) ? parsed.deletedApus : [],
         apusEditados: Array.isArray(parsed.apusEditados) ? parsed.apusEditados : [],
-        divisiones: Array.isArray(parsed.divisiones) ? parsed.divisiones : undefined
+        divisiones: Array.isArray(parsed.divisiones) ? parsed.divisiones : undefined,
+        tiposPlano: Array.isArray(parsed.tiposPlano) ? parsed.tiposPlano : undefined,
+        categoriasLegal: Array.isArray(parsed.categoriasLegal) ? parsed.categoriasLegal : undefined
       };
       const deletedApusSet = new Set(catFinal.deletedApus);
       const editadosSet = new Set(catFinal.apusEditados);
@@ -65,6 +73,14 @@ export function mergeCatalogoConSeed(guardadoRaw: string | null, seedFresh: Cata
     ];
     catFinal.divisiones = usadas.sort((a, b) => a.localeCompare(b, 'es', { sensitivity: 'base' }));
   }
+  // Tipos de plano: merge no destructivo con el seed embebido (los del usuario
+  // mandan; los nuevos del seed se agregan por cod). Mismo criterio que arriba.
+  catFinal.tiposPlano = mergeTiposPlanoConSeed(catFinal.tiposPlano, SEED_TIPOS_PLANO);
+  // Categorías del legajo legal: mismo merge no destructivo con el seed.
+  catFinal.categoriasLegal = mergeCategoriasLegalConSeed(
+    catFinal.categoriasLegal,
+    SEED_CATEGORIAS_LEGAL
+  );
   return catFinal;
 }
 

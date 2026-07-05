@@ -1,0 +1,1137 @@
+[
+ {
+  "grupo": "Trabajos Preliminares",
+  "tipos": [
+   {
+    "cod": "TP1",
+    "den": "Obrador Y Vallas Provisorias",
+    "esc": "1,100"
+   },
+   {
+    "cod": "TP2",
+    "den": "Cartel De Obra",
+    "esc": "S.E."
+   },
+   {
+    "cod": "TP3",
+    "den": "Obra Existente",
+    "esc": "1,50"
+   },
+   {
+    "cod": "TP4",
+    "den": "Demoliciones",
+    "esc": "1,50"
+   }
+  ]
+ },
+ {
+  "grupo": "Movimiento De Tierra",
+  "tipos": [
+   {
+    "cod": "MT1",
+    "den": "Mensura Y Niveles Del Terreno",
+    "esc": "1,100"
+   },
+   {
+    "cod": "MT2",
+    "den": "Analisis De Suelo Y Perfiles Edafologicos",
+    "esc": "1,100/20"
+   },
+   {
+    "cod": "MT3",
+    "den": "Desmontes Y Terraplenados",
+    "esc": "1,200/50"
+   },
+   {
+    "cod": "MT4",
+    "den": "Excavacion De Bases Y/O Cimientos",
+    "esc": "1,50"
+   },
+   {
+    "cod": "MT5",
+    "den": "Caja Para Pavimentos",
+    "esc": "1,200/50"
+   }
+  ]
+ },
+ {
+  "grupo": "Estructura Hormigon Armado",
+  "tipos": [
+   {
+    "cod": "H1",
+    "den": "Bases / Tensores / Vigas De Encadenado /Pilotines / Viga De Fundacion",
+    "esc": "1,50"
+   },
+   {
+    "cod": "H2",
+    "den": "Tabiques Submuracion",
+    "esc": "1,50"
+   },
+   {
+    "cod": "H3",
+    "den": "Losa De Subpresion",
+    "esc": "1,50"
+   },
+   {
+    "cod": "H4",
+    "den": "Platea De Fundacion",
+    "esc": "1,50"
+   },
+   {
+    "cod": "H5",
+    "den": "Losas / Vigas Y Columnas S/Ss",
+    "esc": "1,50"
+   },
+   {
+    "cod": "H6",
+    "den": "Losas / Vigas Y Columnas S/Pb",
+    "esc": "1,50"
+   },
+   {
+    "cod": "H7",
+    "den": "Losas / Vigas Y Columnas S/Planta Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "H8",
+    "den": "Losas / Vigas Y Columnas S/Planta No Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "H9",
+    "den": "Losas / Vigas Y Columnas S/Ultima Planta",
+    "esc": "1,50"
+   },
+   {
+    "cod": "H10",
+    "den": "Losas / Vigas Y Columnas S/Azotea",
+    "esc": "1,50"
+   },
+   {
+    "cod": "H11",
+    "den": "Sala De Maquinas / Tanqiue",
+    "esc": "1,50"
+   },
+   {
+    "cod": "H12",
+    "den": "Escalera",
+    "esc": "1,20/5"
+   },
+   {
+    "cod": "H13",
+    "den": "Tabiques",
+    "esc": "1,20/5"
+   }
+  ]
+ },
+ {
+  "grupo": "Estructura Hormigon Armado Premoldeado",
+  "tipos": [
+   {
+    "cod": "HP1",
+    "den": "Losas / Vigas Y Columnas S/Ss",
+    "esc": "1,50"
+   },
+   {
+    "cod": "HP2",
+    "den": "Losas / Vigas Y Columnas S/Pb",
+    "esc": "1,50"
+   },
+   {
+    "cod": "HP3",
+    "den": "Losas / Vigas Y Columnas S/Planta Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "HP4",
+    "den": "Losas / Vigas Y Columnas S/Planta No Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "HP5",
+    "den": "Losas / Vigas Y Columnas S/Ultima Planta",
+    "esc": "1,50"
+   },
+   {
+    "cod": "HP6",
+    "den": "Losas / Vigas Y Columnas S/Azotea",
+    "esc": "1,50"
+   },
+   {
+    "cod": "HP7",
+    "den": "Escalera",
+    "esc": "1,20/5"
+   },
+   {
+    "cod": "HP8",
+    "den": "Paneles De Cierre Vertical",
+    "esc": "1,50"
+   },
+   {
+    "cod": "HP9",
+    "den": "Estructura Hºaº Premoldeado Detalles Constructivos",
+    "esc": "1,20/5"
+   }
+  ]
+ },
+ {
+  "grupo": "Estructuras Mixtas",
+  "tipos": [
+   {
+    "cod": "EMC1",
+    "den": "Losas / Vigas Y Columnas S/Ss",
+    "esc": "1,50",
+    "sub": "Losas Ceramica / Vigas Y Columnas Hºaº"
+   },
+   {
+    "cod": "EMC2",
+    "den": "Losas / Vigas Y Columnas S/Pb",
+    "esc": "1,50",
+    "sub": "Losas Ceramica / Vigas Y Columnas Hºaº"
+   },
+   {
+    "cod": "EMC3",
+    "den": "Losas / Vigas Y Columnas S/Planta Tipo",
+    "esc": "1,50",
+    "sub": "Losas Ceramica / Vigas Y Columnas Hºaº"
+   },
+   {
+    "cod": "EMC4",
+    "den": "Losas / Vigas Y Columnas S/Planta No Tipo",
+    "esc": "1,50",
+    "sub": "Losas Ceramica / Vigas Y Columnas Hºaº"
+   },
+   {
+    "cod": "EMC5",
+    "den": "Losas / Vigas Y Columnas S/Ultima Planta",
+    "esc": "1,50",
+    "sub": "Losas Ceramica / Vigas Y Columnas Hºaº"
+   },
+   {
+    "cod": "EMC6",
+    "den": "Losas / Vigas Y Columnas S/Azotea",
+    "esc": "1,50",
+    "sub": "Losas Ceramica / Vigas Y Columnas Hºaº"
+   },
+   {
+    "cod": "EMC7",
+    "den": "Escalera",
+    "esc": "1,20/5",
+    "sub": "Losas Ceramica / Vigas Y Columnas Hºaº"
+   },
+   {
+    "cod": "EMCM1",
+    "den": "Losas / Vigas Y Columnas S/Ss",
+    "esc": "1,50",
+    "sub": "Losas Ceramica / Vigas Y Columnas Metalicas"
+   },
+   {
+    "cod": "EMCM2",
+    "den": "Losas / Vigas Y Columnas S/Pb",
+    "esc": "1,50",
+    "sub": "Losas Ceramica / Vigas Y Columnas Metalicas"
+   },
+   {
+    "cod": "EMCM3",
+    "den": "Losas / Vigas Y Columnas S/Planta Tipo",
+    "esc": "1,50",
+    "sub": "Losas Ceramica / Vigas Y Columnas Metalicas"
+   },
+   {
+    "cod": "EMCM4",
+    "den": "Losas / Vigas Y Columnas S/Planta No Tipo",
+    "esc": "1,50",
+    "sub": "Losas Ceramica / Vigas Y Columnas Metalicas"
+   },
+   {
+    "cod": "EMCM5",
+    "den": "Losas / Vigas Y Columnas S/Ultima Planta",
+    "esc": "1,50",
+    "sub": "Losas Ceramica / Vigas Y Columnas Metalicas"
+   },
+   {
+    "cod": "EMCM6",
+    "den": "Losas / Vigas Y Columnas S/Azotea",
+    "esc": "1,50",
+    "sub": "Losas Ceramica / Vigas Y Columnas Metalicas"
+   },
+   {
+    "cod": "EMCM7",
+    "den": "Escalera",
+    "esc": "1,20/10/5/1",
+    "sub": "Losas Ceramica / Vigas Y Columnas Metalicas"
+   },
+   {
+    "cod": "EMHP1",
+    "den": "Losas / Vigas Y Columnas S/Ss",
+    "esc": "1,50",
+    "sub": "Losas Hºpº / Vigas Y Columnas Hºaº"
+   },
+   {
+    "cod": "EMHP2",
+    "den": "Losas / Vigas Y Columnas S/Pb",
+    "esc": "1,50",
+    "sub": "Losas Hºpº / Vigas Y Columnas Hºaº"
+   },
+   {
+    "cod": "EMHP3",
+    "den": "Losas / Vigas Y Columnas S/Planta Tipo",
+    "esc": "1,50",
+    "sub": "Losas Hºpº / Vigas Y Columnas Hºaº"
+   },
+   {
+    "cod": "EMHP4",
+    "den": "Losas / Vigas Y Columnas S/Planta No Tipo",
+    "esc": "1,50",
+    "sub": "Losas Hºpº / Vigas Y Columnas Hºaº"
+   },
+   {
+    "cod": "EMHP5",
+    "den": "Losas / Vigas Y Columnas S/Ultima Planta",
+    "esc": "1,50",
+    "sub": "Losas Hºpº / Vigas Y Columnas Hºaº"
+   },
+   {
+    "cod": "EMHP6",
+    "den": "Losas / Vigas Y Columnas S/Azotea",
+    "esc": "1,50",
+    "sub": "Losas Hºpº / Vigas Y Columnas Hºaº"
+   },
+   {
+    "cod": "EMHP7",
+    "den": "Escalera",
+    "esc": "1,20/5",
+    "sub": "Losas Hºpº / Vigas Y Columnas Hºaº"
+   },
+   {
+    "cod": "EMHPM1",
+    "den": "Losas / Vigas Y Columnas S/Ss",
+    "esc": "1,50",
+    "sub": "Losas Hºpº / Vigas Y Columnas Metalicas"
+   },
+   {
+    "cod": "EMHPM2",
+    "den": "Losas / Vigas Y Columnas S/Pb",
+    "esc": "1,50",
+    "sub": "Losas Hºpº / Vigas Y Columnas Metalicas"
+   },
+   {
+    "cod": "EMHPM3",
+    "den": "Losas / Vigas Y Columnas S/Planta Tipo",
+    "esc": "1,50",
+    "sub": "Losas Hºpº / Vigas Y Columnas Metalicas"
+   },
+   {
+    "cod": "EMHPM4",
+    "den": "Losas / Vigas Y Columnas S/Planta No Tipo",
+    "esc": "1,50",
+    "sub": "Losas Hºpº / Vigas Y Columnas Metalicas"
+   },
+   {
+    "cod": "EMHPM5",
+    "den": "Losas / Vigas Y Columnas S/Ultima Planta",
+    "esc": "1,50",
+    "sub": "Losas Hºpº / Vigas Y Columnas Metalicas"
+   },
+   {
+    "cod": "EMHPM6",
+    "den": "Losas / Vigas Y Columnas S/Azotea",
+    "esc": "1,50",
+    "sub": "Losas Hºpº / Vigas Y Columnas Metalicas"
+   },
+   {
+    "cod": "EMHPM7",
+    "den": "Escalera",
+    "esc": "1,20/10/5/1",
+    "sub": "Losas Hºpº / Vigas Y Columnas Metalicas"
+   }
+  ]
+ },
+ {
+  "grupo": "Estructura Metalica",
+  "tipos": [
+   {
+    "cod": "EMET1",
+    "den": "Insertos Y Placa Base Columna",
+    "esc": "1,20/5"
+   },
+   {
+    "cod": "EMET2",
+    "den": "Columnas / Vigas / Cabriadas / Correas",
+    "esc": "1,50"
+   },
+   {
+    "cod": "EMET3",
+    "den": "Entrepisos",
+    "esc": "1,50"
+   },
+   {
+    "cod": "EMET4",
+    "den": "Detalles",
+    "esc": "1,20/10/5/1"
+   }
+  ]
+ },
+ {
+  "grupo": "Estructura Madera",
+  "tipos": [
+   {
+    "cod": "EMA1",
+    "den": "Insertos Y Placa Base Columna",
+    "esc": "1,20/5"
+   },
+   {
+    "cod": "EMA2",
+    "den": "Columnas / Vigas / Cabriadas / Correas",
+    "esc": "1,50"
+   },
+   {
+    "cod": "EMA3",
+    "den": "Entrepisos",
+    "esc": "1,50"
+   },
+   {
+    "cod": "EMA4",
+    "den": "Detalles",
+    "esc": "1,20/10/5/1"
+   }
+  ]
+ },
+ {
+  "grupo": "Albañileria",
+  "tipos": [
+   {
+    "cod": "A1",
+    "den": "Cimientos",
+    "esc": "1,50"
+   },
+   {
+    "cod": "A2",
+    "den": "Mamposteria Ss",
+    "esc": "1,50"
+   },
+   {
+    "cod": "A3",
+    "den": "Mamposteria Pb",
+    "esc": "1,50"
+   },
+   {
+    "cod": "A4",
+    "den": "Mamposteria Planta Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "A5",
+    "den": "Mamposteria Planta No Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "A6",
+    "den": "Mamposteria Ultima Planta",
+    "esc": "1,50"
+   },
+   {
+    "cod": "A7",
+    "den": "Mamposteria Azotea",
+    "esc": "1,50"
+   },
+   {
+    "cod": "A8",
+    "den": "Mamposteria Vistas",
+    "esc": "1,50"
+   },
+   {
+    "cod": "A9",
+    "den": "Mamposteria Cortes",
+    "esc": "1,50"
+   },
+   {
+    "cod": "A10",
+    "den": "Mamposteria Detalle Locales Sanitarios",
+    "esc": "1,20"
+   },
+   {
+    "cod": "A11",
+    "den": "Mamposteria Detalles Constructivos",
+    "esc": "1,20/10/5/1"
+   }
+  ]
+ },
+ {
+  "grupo": "Cubiertas",
+  "tipos": [
+   {
+    "cod": "CUTE1",
+    "den": "Cubierta De Tejas",
+    "esc": "1,50",
+    "sub": "De Tejas (Indicar Tipo)"
+   },
+   {
+    "cod": "CUTE2",
+    "den": "Cubierta De Tejas Detalles Constructivos",
+    "esc": "1,20/10/5/1",
+    "sub": "De Tejas (Indicar Tipo)"
+   },
+   {
+    "cod": "CUCH1",
+    "den": "Cubierta De Chapa",
+    "esc": "1,50",
+    "sub": "De Chapa (Indicar Tipo)"
+   },
+   {
+    "cod": "CUCH2",
+    "den": "Cubierta De Chapa Detalles Constructivos",
+    "esc": "1,20/10/5/1",
+    "sub": "De Chapa (Indicar Tipo)"
+   },
+   {
+    "cod": "CUVI1",
+    "den": "Cubierta De Vidrio",
+    "esc": "1,50",
+    "sub": "De Vidrio (Indicar Tipo)"
+   },
+   {
+    "cod": "CUVI2",
+    "den": "Cubierta De Vidrio Detalles Constructivos",
+    "esc": "1,20/10/5/1",
+    "sub": "De Vidrio (Indicar Tipo)"
+   }
+  ]
+ },
+ {
+  "grupo": "Yeseria",
+  "tipos": [
+   {
+    "cod": "Y1",
+    "den": "Yeseria Ss",
+    "esc": "1,50",
+    "sub": "Tradicional"
+   },
+   {
+    "cod": "Y2",
+    "den": "Yeseria Pb",
+    "esc": "1,50",
+    "sub": "Tradicional"
+   },
+   {
+    "cod": "Y3",
+    "den": "Yeseria Planta Tipo",
+    "esc": "1,50",
+    "sub": "Tradicional"
+   },
+   {
+    "cod": "Y4",
+    "den": "Yeseria Planta No Tipo",
+    "esc": "1,50",
+    "sub": "Tradicional"
+   },
+   {
+    "cod": "Y5",
+    "den": "Yeseria Ultima Planta",
+    "esc": "1,50",
+    "sub": "Tradicional"
+   },
+   {
+    "cod": "Y6",
+    "den": "Yeseria Detalles Constructivos",
+    "esc": "1,20/10/5/1",
+    "sub": "Tradicional"
+   },
+   {
+    "cod": "YP1",
+    "den": "Yeseria Ss",
+    "esc": "1,50",
+    "sub": "Prefabricada ( Indicar Sistema)"
+   },
+   {
+    "cod": "YP2",
+    "den": "Yeseria Pb",
+    "esc": "1,50",
+    "sub": "Prefabricada ( Indicar Sistema)"
+   },
+   {
+    "cod": "YP3",
+    "den": "Yeseria Planta Tipo",
+    "esc": "1,50",
+    "sub": "Prefabricada ( Indicar Sistema)"
+   },
+   {
+    "cod": "YP4",
+    "den": "Yeseria Planta No Tipo",
+    "esc": "1,50",
+    "sub": "Prefabricada ( Indicar Sistema)"
+   },
+   {
+    "cod": "YP5",
+    "den": "Yeseria Ultima Planta",
+    "esc": "1,50",
+    "sub": "Prefabricada ( Indicar Sistema)"
+   },
+   {
+    "cod": "YP6",
+    "den": "Yeseria Detalles Constructivos",
+    "esc": "1,20/10/5/1",
+    "sub": "Prefabricada ( Indicar Sistema)"
+   }
+  ]
+ },
+ {
+  "grupo": "Cielorrasos Independientes (Indicar Tipo)",
+  "tipos": [
+   {
+    "cod": "CIE1",
+    "den": "Cielorrasos Ss",
+    "esc": "1,50"
+   },
+   {
+    "cod": "CIE2",
+    "den": "Cielorrasos Pb",
+    "esc": "1,50"
+   },
+   {
+    "cod": "CIE3",
+    "den": "Cielorrasos Planta Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "CIE4",
+    "den": "Cielorrasos Planta No Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "CIE5",
+    "den": "Cielorrasos Ultima Planta",
+    "esc": "1,50"
+   },
+   {
+    "cod": "CIE6",
+    "den": "Cielorrasos Detalles Constructivos",
+    "esc": "1,20/10/5/1"
+   }
+  ]
+ },
+ {
+  "grupo": "Pisos Y Zocalos",
+  "tipos": [
+   {
+    "cod": "PI1",
+    "den": "Pisos Ss",
+    "esc": "1,50"
+   },
+   {
+    "cod": "PI2",
+    "den": "Pisos Pb",
+    "esc": "1,50"
+   },
+   {
+    "cod": "PI3",
+    "den": "Pisos Planta Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "PI4",
+    "den": "Pisos Planta No Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "PI5",
+    "den": "Pisos Ultima Planta",
+    "esc": "1,50"
+   },
+   {
+    "cod": "PI6",
+    "den": "Pisos Detalles Constructivos",
+    "esc": "1,20/10/5/1"
+   }
+  ]
+ },
+ {
+  "grupo": "Carpinterias",
+  "tipos": [
+   {
+    "cod": "CAMAD1",
+    "den": "Puertas / Ventanas / Puertas Ventanas/ Portones/Postigones/Barandas",
+    "esc": "1,20",
+    "sub": "De Madera"
+   },
+   {
+    "cod": "CAMAD2",
+    "den": "Frente E Interior De Roperos",
+    "esc": "1,20",
+    "sub": "De Madera"
+   },
+   {
+    "cod": "CAMAD3",
+    "den": "Muebles",
+    "esc": "1,20",
+    "sub": "De Madera"
+   },
+   {
+    "cod": "CAMAD4",
+    "den": "Cortina De Enrollar",
+    "esc": "1,20",
+    "sub": "De Madera"
+   },
+   {
+    "cod": "CAMAD5",
+    "den": "Especiales",
+    "esc": "1,20",
+    "sub": "De Madera"
+   },
+   {
+    "cod": "CAMAD6",
+    "den": "Carpinteria De Madera Detalles Constructivos",
+    "esc": "1,20/10/5/1",
+    "sub": "De Madera"
+   },
+   {
+    "cod": "CAMET1",
+    "den": "Puertas / Ventanas / Puertas Ventanas/ Portones/Postigones/Rejas/Barandas",
+    "esc": "1,20",
+    "sub": "Metalica Y Herreria"
+   },
+   {
+    "cod": "CAMET2",
+    "den": "Frente De Roperos",
+    "esc": "1,20",
+    "sub": "Metalica Y Herreria"
+   },
+   {
+    "cod": "CAMET3",
+    "den": "Muebles",
+    "esc": "1,20",
+    "sub": "Metalica Y Herreria"
+   },
+   {
+    "cod": "CAMET4",
+    "den": "Cortina De Enrollar",
+    "esc": "1,20",
+    "sub": "Metalica Y Herreria"
+   },
+   {
+    "cod": "CAMET5",
+    "den": "Especiales",
+    "esc": "1,20",
+    "sub": "Metalica Y Herreria"
+   },
+   {
+    "cod": "CAMET6",
+    "den": "Carpinteria Metalica Y Herreria Detalles Constructivos",
+    "esc": "1,20/10/5/1",
+    "sub": "Metalica Y Herreria"
+   },
+   {
+    "cod": "CAAL1",
+    "den": "Puertas / Ventanas / Puertas Ventanas/ Portones/Postigones/Rejas/Barandas",
+    "esc": "1,20",
+    "sub": "Aluminio"
+   },
+   {
+    "cod": "CAAL2",
+    "den": "Frente De Roperos",
+    "esc": "1,20",
+    "sub": "Aluminio"
+   },
+   {
+    "cod": "CAAL3",
+    "den": "Muebles",
+    "esc": "1,20",
+    "sub": "Aluminio"
+   },
+   {
+    "cod": "CAAL4",
+    "den": "Cortina De Enrollar",
+    "esc": "1,20",
+    "sub": "Aluminio"
+   },
+   {
+    "cod": "CAAL5",
+    "den": "Especiales",
+    "esc": "1,20",
+    "sub": "Aluminio"
+   },
+   {
+    "cod": "CAAL6",
+    "den": "Carpinteria De Aluminio Detalles Constructivos",
+    "esc": "1,20/10/5/1",
+    "sub": "Aluminio"
+   },
+   {
+    "cod": "CAPVC1",
+    "den": "Puertas / Ventanas / Puertas Ventanas/ Postigones",
+    "esc": "1,20",
+    "sub": "Pvc"
+   },
+   {
+    "cod": "CAPVC2",
+    "den": "Frente De Roperos",
+    "esc": "1,20",
+    "sub": "Pvc"
+   },
+   {
+    "cod": "CAPVC3",
+    "den": "Cortina De Enrollar",
+    "esc": "1,20",
+    "sub": "Pvc"
+   },
+   {
+    "cod": "CAPVC4",
+    "den": "Especiales",
+    "esc": "1,20",
+    "sub": "Pvc"
+   },
+   {
+    "cod": "CAPVC5",
+    "den": "Carpinteria De Pvc Detalles Constructivos",
+    "esc": "1,20/10/5/1",
+    "sub": "Pvc"
+   },
+   {
+    "cod": "CACO1",
+    "den": "Puertas / Ventanas / Puertas Ventanas/ Portones/Postigones/Barandas",
+    "esc": "1,20",
+    "sub": "Combinadas"
+   },
+   {
+    "cod": "CACO2",
+    "den": "Frente E Interior De Roperos",
+    "esc": "1,20",
+    "sub": "Combinadas"
+   },
+   {
+    "cod": "CACO3",
+    "den": "Muebles",
+    "esc": "1,20",
+    "sub": "Combinadas"
+   },
+   {
+    "cod": "CACO4",
+    "den": "Cortina De Enrollar",
+    "esc": "1,20",
+    "sub": "Combinadas"
+   },
+   {
+    "cod": "CACO5",
+    "den": "Especiales",
+    "esc": "1,20",
+    "sub": "Combinadas"
+   },
+   {
+    "cod": "CACO6",
+    "den": "Carpinteria Combinadas Detalles Constructivos",
+    "esc": "1,20/10/5/1",
+    "sub": "Combinadas"
+   }
+  ]
+ },
+ {
+  "grupo": "Instalacion Electrica",
+  "tipos": [
+   {
+    "cod": "IE1",
+    "den": "Instalacion Electrica Ss",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IE2",
+    "den": "Instalacion Electrica Pb",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IE3",
+    "den": "Instalacion Electrica Planta Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IE4",
+    "den": "Instalacion Electrica Planta No Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IE5",
+    "den": "Instalacion Electrica Ultima Planta",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IE6",
+    "den": "Instalacion Electrica Tableros",
+    "esc": "1,5"
+   },
+   {
+    "cod": "IE7",
+    "den": "Instalacion Electrica Local De Medidores",
+    "esc": "1,5"
+   },
+   {
+    "cod": "IE8",
+    "den": "Instalacion Electrica Planilla Artefactos De Iluminacion",
+    "esc": "S/E"
+   }
+  ]
+ },
+ {
+  "grupo": "Instalacion Sanitaria",
+  "tipos": [
+   {
+    "cod": "IS1",
+    "den": "Instalacion Sanitaria Ss",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IS2",
+    "den": "Instalacion Sanitaria Pb",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IS3",
+    "den": "Instalacion Sanitaria Planta Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IS4",
+    "den": "Instalacion Sanitaria Planta No Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IS5",
+    "den": "Instalacion Sanitaria Ultima Planta",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IS6",
+    "den": "Instalacion Sanitaria Tanques Y Colector",
+    "esc": "1,5"
+   },
+   {
+    "cod": "IS7",
+    "den": "Instalacion Sanitaria Planilla Artefactos Sanitarios Y Broncería",
+    "esc": "S/E"
+   }
+  ]
+ },
+ {
+  "grupo": "Instalacion De Gas",
+  "tipos": [
+   {
+    "cod": "IG1",
+    "den": "Instalacion De Gas Ss",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IG2",
+    "den": "Instalacion De Gas Pb",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IG3",
+    "den": "Instalacion De Gas Planta Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IG4",
+    "den": "Instalacion De Gas Planta No Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IG5",
+    "den": "Instalacion De Gas Ultima Planta",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IG6",
+    "den": "Instalacion De Gas Caldera Y Ventilaciones",
+    "esc": "1,5"
+   },
+   {
+    "cod": "IG7",
+    "den": "Instalacion De Gas Local De Medidores",
+    "esc": "1,5"
+   },
+   {
+    "cod": "IG8",
+    "den": "Instalacion De Gas Planilla Artefactos De Gas",
+    "esc": "S/E"
+   }
+  ]
+ },
+ {
+  "grupo": "Instalacion De Calefaccion",
+  "tipos": [
+   {
+    "cod": "IC1",
+    "den": "Instalacion De Calefaccion Ss",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IC2",
+    "den": "Instalacion De Calefaccion Pb",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IC3",
+    "den": "Instalacion De Calefaccion Planta Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IC4",
+    "den": "Instalacion De Calefaccion Planta No Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IC5",
+    "den": "Instalacion De Calefaccion Ultima Planta",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IC6",
+    "den": "Instalacion De Calefaccion Caldera Y Ventilaciones",
+    "esc": "1,5"
+   },
+   {
+    "cod": "IC7",
+    "den": "Instalacion De Calefaccion Planilla De Radiadores",
+    "esc": "S/E"
+   }
+  ]
+ },
+ {
+  "grupo": "Instalacion De Aire Acondicionado",
+  "tipos": [
+   {
+    "cod": "IAA1",
+    "den": "Instalacion De Aire Acondicionado Ss",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IAA2",
+    "den": "Instalacion De Aire Acondicionado Pb",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IAA3",
+    "den": "Instalacion De Aire Acondicionado Planta Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IAA4",
+    "den": "Instalacion De Aire Acondicionado Planta No Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IAA5",
+    "den": "Instalacion De Aire Acondicionado Ultima Planta",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IAA6",
+    "den": "Instalacion De Aire Acondicionado Equipos",
+    "esc": "1,5"
+   }
+  ]
+ },
+ {
+  "grupo": "Instalacion De Aire Comprimido",
+  "tipos": [
+   {
+    "cod": "IAC1",
+    "den": "Instalacion De Aire Comprimido Ss",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IAC2",
+    "den": "Instalacion De Aire Comprimido Pb",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IAC3",
+    "den": "Instalacion De Aire Comprimido Planta Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IAC4",
+    "den": "Instalacion De Aire Comprimido Planta No Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IAC5",
+    "den": "Instalacion De Aire Comprimido Ultima Planta",
+    "esc": "1,50"
+   },
+   {
+    "cod": "IAC6",
+    "den": "Instalacion De Aire Comprimido Equipos",
+    "esc": "1,5"
+   }
+  ]
+ },
+ {
+  "grupo": "Instalacion Contra Incendio",
+  "tipos": [
+   {
+    "cod": "ICI1",
+    "den": "Instalacion Contra Incendio Ss",
+    "esc": "1,50"
+   },
+   {
+    "cod": "ICI2",
+    "den": "Instalacion Contra Incendio Pb",
+    "esc": "1,50"
+   },
+   {
+    "cod": "ICI3",
+    "den": "Instalacion Contra Incendio Planta Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "ICI4",
+    "den": "Instalacion Contra Incendio Planta No Tipo",
+    "esc": "1,50"
+   },
+   {
+    "cod": "ICI5",
+    "den": "Instalacion Contra Incendio Ultima Planta",
+    "esc": "1,50"
+   },
+   {
+    "cod": "ICI6",
+    "den": "Instalacion Contra Incendio Equipos",
+    "esc": "1,5"
+   }
+  ]
+ },
+ {
+  "grupo": "Ascensores Y Montacargas",
+  "tipos": [
+   {
+    "cod": "ASC1",
+    "den": "Sala De Maquinas Y Caja Ascensor",
+    "esc": "1,50"
+   },
+   {
+    "cod": "ASC2",
+    "den": "Cabina Ascensor",
+    "esc": "1,20/10/5/1"
+   },
+   {
+    "cod": "ASC3",
+    "den": "Ascensor Detalles Constructivos",
+    "esc": "1,20/10/5/1"
+   }
+  ]
+ },
+ {
+  "grupo": "Marmoleria",
+  "tipos": [
+   {
+    "cod": "MA1",
+    "den": "Marmoleria",
+    "esc": "1,50"
+   },
+   {
+    "cod": "MA2",
+    "den": "Marmoleria Detalles Constructivos",
+    "esc": "1,20/10/5/1"
+   }
+  ]
+ }
+]

@@ -17,6 +17,7 @@ import { Materiales } from './views/catalogo/Materiales';
 import { ManoObra } from './views/catalogo/ManoObra';
 import { Equipos } from './views/catalogo/Equipos';
 import { Rubros } from './views/catalogo/Rubros';
+import { TiposPlano } from './views/catalogo/TiposPlano';
 import { CUs } from './views/catalogo/CUs';
 import { Respaldo } from './views/Respaldo';
 import { Revit } from './views/Revit';
@@ -38,6 +39,7 @@ const NAV: NavItem[] = [
   { id: 'equipos', label: 'Equipos', grupo: 'Catálogo' },
   { id: 'rubros', label: 'Rubros', grupo: 'Catálogo' },
   { id: 'cus', label: 'Cómputos Unitarios', grupo: 'Catálogo' },
+  { id: 'tiposplano', label: 'Tipos de plano', grupo: 'Catálogo' },
   { id: 'revit', label: 'Import Revit', grupo: 'Herramientas' },
   { id: 'respaldo', label: 'Respaldo', grupo: 'Herramientas' },
   { id: 'sistema', label: 'Sistema visual', grupo: 'Herramientas' }
@@ -216,6 +218,7 @@ function AppInterna({
           obra={obraAbierta}
           setObra={app.setObra}
           cat={cat}
+          setCat={setCat}
           motor={motor}
           onVolver={() => setObraId(null)}
         />
@@ -239,6 +242,8 @@ function AppInterna({
         <Rubros cat={cat} setCat={setCat} motor={motor} />
       ) : vista === 'cus' ? (
         <CUs cat={cat} setCat={setCat} motor={motor} />
+      ) : vista === 'tiposplano' ? (
+        <TiposPlano cat={cat} setCat={setCat} obras={obras} />
       ) : vista === 'revit' ? (
         <Revit cat={cat} motor={motor} obras={obras} setObras={app.setObras} revitMap={app.revitMap} setRevitMap={app.setRevitMap} onAbrirObra={(id) => { setVista('obras'); setObraId(id); }} />
       ) : vista === 'respaldo' ? (

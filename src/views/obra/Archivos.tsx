@@ -2,10 +2,16 @@
  * ARCHIVOS de obra (H3): planos y editables (PDF, DWG, RVT, SKP, imágenes…)
  * en la carpeta de Drive de la obra: "SUD Cómputo v2/Archivos/<obra>".
  * El id de carpeta se cachea en obra.archivosDriveFolderId (passthrough).
+ * Subtabs: Archivos (Drive) | Documentación (registro de revisiones de planos,
+ * con vigencia derivada y vínculo opcional a los archivos de esta carpeta) |
+ * Legales (legajo legal: contratos, presupuestos, permisos, seguros, actas).
  */
 import { useEffect, useRef, useState } from 'react';
-import type { Obra } from '../../core';
-import { Badge, Btn, Card, SectionTitle, td, th } from '../../ui/base';
+import { abrevCategoria } from '../../core';
+import type { Catalogo, DocumentoLegal, DocumentoObra, Obra } from '../../core';
+import { Badge, Btn, Card, SectionTitle, SubTabs, td, th } from '../../ui/base';
+import { Documentacion } from './Documentacion';
+import { Legales } from './Legales';
 import { Modal } from '../../ui/edit';
 import { conectar, useGoogleAuth } from '../../storage/googleAuth';
 import {
@@ -46,7 +52,18 @@ function icono(a: ArchivoDrive): string {
   return '📎';
 }
 
-export function Archivos({ obra, setObra }: { obra: Obra; setObra: (o: Obra) => void }) {
+export function Archivos({
+  obra,
+  setObra,
+  cat,
+  setCat
+}: {
+  obra: Obra;
+  setObra: (o: Obra) => void;
+  cat: Catalogo;
+  setCat: (c: Catalogo) => void;
+}) {
+  const [subTab, setSubTab] = useState<'archivos' | 'docs' | 'legales'>('archivos');
   const auth = useGoogleAuth();
   const inputRef = useRef<HTMLInputElement>(null);
   const [folderId, setFolderId] = useState<string | null>(null);
@@ -55,6 +72,26 @@ export function Archivos({ obra, setObra }: { obra: Obra; setObra: (o: Obra) => 
   const [subiendo, setSubiendo] = useState<string | null>(null);
   const [msg, setMsg] = useState<string | null>(null);
   const [preview, setPreview] = useState<ArchivoDrive | null>(null);
+
+  // Documento vinculado a cada archivo de Drive (chip "COD R#"): si un mismo
+  // archivo tiene varias revisiones vinculadas, gana la de mayor rev.
+  const docs: DocumentoObra[] = Array.isArray(obra.documentos) ? obra.documentos : [];
+  const docPorFileId = new Map<string, DocumentoObra>();
+  for (const d of docs) {
+    if (!d?.driveFileId) continue;
+    const actual = docPorFileId.get(d.driveFileId);
+    if (!actual || Number(d.rev) >= Number(actual.rev)) docPorFileId.set(d.driveFileId, d);
+  }
+
+  // Documento legal vinculado a cada archivo (chip con la categoría abreviada):
+  // si un archivo respalda varios documentos del legajo, gana el de fecha más nueva.
+  const legales: DocumentoLegal[] = Array.isArray(obra.legales) ? obra.legales : [];
+  const legalPorFileId = new Map<string, DocumentoLegal>();
+  for (const l of legales) {
+    if (!l?.driveFileId) continue;
+    const actual = legalPorFileId.get(l.driveFileId);
+    if (!actual || (l.fechaDoc ?? '') >= (actual.fechaDoc ?? '')) legalPorFileId.set(l.driveFileId, l);
+  }
 
   const inicializar = async () => {
     setCargando(true);
@@ -132,8 +169,40 @@ export function Archivos({ obra, setObra }: { obra: Obra; setObra: (o: Obra) => 
     }
   };
 
+  const subTabs = (
+    <SubTabs
+      tabs={[
+        ['archivos', 'Archivos'],
+        ['docs', 'Documentación'],
+        ['legales', 'Legales']
+      ] as const}
+      activa={subTab}
+      onCambiar={setSubTab}
+    />
+  );
+
+  if (subTab === 'docs') {
+    return (
+      <div>
+        {subTabs}
+        <Documentacion obra={obra} setObra={setObra} cat={cat} archivos={archivos} />
+      </div>
+    );
+  }
+
+  if (subTab === 'legales') {
+    return (
+      <div>
+        {subTabs}
+        <Legales obra={obra} setObra={setObra} cat={cat} setCat={setCat} archivos={archivos} />
+      </div>
+    );
+  }
+
   if (!auth.autenticado) {
     return (
+      <div>
+        {subTabs}
       <Card className="p-10 text-center">
         <div className="font-marca text-xl">Archivos de obra</div>
         <p className="mx-auto mt-2 max-w-md text-sm text-[var(--texto-2)]">
@@ -146,11 +215,13 @@ export function Archivos({ obra, setObra }: { obra: Obra; setObra: (o: Obra) => 
         </div>
         {msg && <p className="mt-3 text-sm text-[var(--texto-2)]">{msg}</p>}
       </Card>
+      </div>
     );
   }
 
   return (
     <div className="space-y-4">
+      {subTabs}
       <Card className="space-y-4 p-6">
         <div className="flex flex-wrap items-center gap-3">
           <SectionTitle>Archivos de la obra</SectionTitle>
@@ -203,6 +274,23 @@ export function Archivos({ obra, setObra }: { obra: Obra; setObra: (o: Obra) => 
                   <td className={td}>
                     <span className="mr-2" aria-hidden>{icono(a)}</span>
                     {a.nombre}
+                    {docPorFileId.has(a.id) && (
+                      <span className="ml-2 inline-flex align-middle" title="Vinculado al registro de documentación">
+                        <Badge tono="info">
+                          {docPorFileId.get(a.id)!.cod} R{docPorFileId.get(a.id)!.rev}
+                        </Badge>
+                      </span>
+                    )}
+                    {legalPorFileId.has(a.id) && (
+                      <span
+                        className="ml-2 inline-flex align-middle"
+                        title={`Vinculado al legajo legal: ${legalPorFileId.get(a.id)!.titulo}`}
+                      >
+                        <Badge tono="info">
+                          ⚖ {abrevCategoria(legalPorFileId.get(a.id)!.categoria)}
+                        </Badge>
+                      </span>
+                    )}
                   </td>
                   <td className={td}>{fmtBytes(a.tamano)}</td>
                   <td className={td}>{fmtFecha(a.modifiedTime)}</td>
