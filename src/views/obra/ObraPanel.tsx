@@ -16,6 +16,7 @@ import { Coeficiente } from './Coeficiente';
 import { Presupuesto } from './Presupuesto';
 import { Explosion } from './Explosion';
 import { ManoObraObra } from './ManoObraObra';
+import { Herramientas } from './Herramientas';
 import { Plan } from './Plan';
 import { Curva } from './Curva';
 import { CaminoCritico } from './CaminoCritico';
@@ -34,6 +35,7 @@ const TABS_PROYECTO = [
   { id: 'presup', label: 'Presupuesto', C: Presupuesto },
   { id: 'explosion', label: 'Explosión', C: Explosion },
   { id: 'mo', label: 'Mano de obra', C: ManoObraObra },
+  { id: 'herr', label: 'Herramientas', C: Herramientas },
   { id: 'plan', label: 'Plan de trabajo', C: Plan },
   { id: 'curva', label: 'Curva', C: Curva },
   { id: 'camino', label: 'Camino crítico', C: CaminoCritico },

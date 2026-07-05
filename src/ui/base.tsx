@@ -61,3 +61,32 @@ export function SectionTitle({ children }: { children: ReactNode }) {
 export const th =
   'py-2 pr-4 text-left text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--texto-2)]';
 export const td = 'py-2 pr-4 border-b border-[var(--borde)] align-middle';
+
+/** Sub-tabs internas de una vista (Precios|Análisis, Completa|A comprar…). */
+export function SubTabs<T extends string>({
+  tabs,
+  activa,
+  onCambiar
+}: {
+  tabs: readonly (readonly [T, string])[];
+  activa: T;
+  onCambiar: (t: T) => void;
+}) {
+  return (
+    <div className="no-print mb-4 flex flex-wrap gap-1 border-b border-[var(--borde)]">
+      {tabs.map(([id, label]) => (
+        <button
+          key={id}
+          onClick={() => onCambiar(id)}
+          className={`-mb-px border-b-2 px-3 py-1.5 text-sm transition-colors ${
+            activa === id
+              ? 'border-[var(--color-sud-azul)] font-medium text-[var(--texto)]'
+              : 'border-transparent text-[var(--texto-2)] hover:text-[var(--texto)]'
+          }`}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
+  );
+}
