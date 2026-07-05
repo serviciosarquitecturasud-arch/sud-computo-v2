@@ -1,14 +1,13 @@
 /**
  * Panel de obra — estructura en dos fases (decisión 05/07/2026):
  *   PROYECTO: todo el trabajo pre-obra (cómputo, presupuesto, plan…).
- *   OBRA: ejecución (H8 — pendiente de las planillas conceptuales del estudio).
+ *   OBRA: ejecución (H8a — Diario | Caja | Compras | Herramientas, ver FaseObra).
  *   ARCHIVOS: planos y editables por obra (H3 — Google Drive).
  */
 import { useState } from 'react';
 import type { Catalogo, Obra } from '../../core';
 import type { Motor } from '../../core';
 import { Aura, auraCodigo, auraColor } from '../../ui/Aura';
-import { Badge, Card } from '../../ui/base';
 import { Resumen } from './Resumen';
 import { Caratula } from './Caratula';
 import { Computo } from './Computo';
@@ -24,6 +23,7 @@ import { Suministro } from './Suministro';
 import { Comparativa } from './Comparativa';
 import { Imprimir } from './Imprimir';
 import { Archivos } from './Archivos';
+import { FaseObra } from './FaseObra';
 
 type Fase = 'proyecto' | 'obra' | 'archivos';
 
@@ -48,12 +48,14 @@ export function ObraPanel({
   obra,
   setObra,
   cat,
+  setCat,
   motor,
   onVolver
 }: {
   obra: Obra;
   setObra: (o: Obra) => void;
   cat: Catalogo;
+  setCat: (c: Catalogo) => void;
   motor: Motor;
   onVolver: () => void;
 }) {
@@ -119,19 +121,9 @@ export function ObraPanel({
         </>
       )}
 
-      {fase === 'obra' && (
-        <Card className="p-10 text-center">
-          <div className="font-marca text-xl">Fase de obra</div>
-          <p className="mx-auto mt-2 max-w-md text-sm text-[var(--texto-2)]">
-            Seguimiento de ejecución: avance físico y financiero, certificaciones, desvíos,
-            controles, fotos y recorridos. Se desarrolla en H8 sobre las planillas de gestión del
-            estudio (pendiente de carga).
-          </p>
-          <div className="mt-4"><Badge>en desarrollo — H8</Badge></div>
-        </Card>
-      )}
+      {fase === 'obra' && <FaseObra obra={obra} setObra={setObra} motor={motor} />}
 
-      {fase === 'archivos' && <Archivos obra={obra} setObra={setObra} />}
+      {fase === 'archivos' && <Archivos obra={obra} setObra={setObra} cat={cat} setCat={setCat} />}
     </div>
   );
 }

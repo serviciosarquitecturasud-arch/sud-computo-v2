@@ -59,6 +59,151 @@ export interface FilaBiblioteca {
   nota: string;
 }
 
+/** Tipo de plano del catálogo de documentación (nomenclatura controlada). */
+export interface TipoPlano {
+  /** Código controlado: prefijo de grupo + número (ej. IE1, H5, CAMAD3) */
+  cod: string;
+  /** Denominación del plano */
+  den: string;
+  /** Escala sugerida (ej. "1,50", "S.E.") */
+  esc: string;
+  /** Grupo del catálogo (ej. "Instalacion Electrica") */
+  grupo: string;
+  /** Subgrupo opcional (ej. tipo de carpintería) */
+  sub?: string;
+}
+
+/** Revisión de un documento (plano) registrada en una obra. */
+export interface DocumentoObra {
+  id: string;
+  /** Código del tipo de plano (obligatorio, del catálogo cat.tiposPlano) */
+  cod: string;
+  /** Número de revisión entero ≥ 0 (se muestra "R0", "R1"…) */
+  rev: number;
+  /** Fecha de emisión ISO yyyy-mm-dd */
+  fecha: string;
+  autor: string;
+  driveFileId?: string;
+  driveLink?: string;
+  notas?: string;
+}
+
+/** Estado persistido de un documento del legajo legal ("Vencido" se deriva de fechaVenc). */
+export type EstadoLegal = 'presentado' | 'aprobado' | 'firmado' | 'rechazado';
+
+/** Documento del legajo legal de una obra (contratos, presupuestos, permisos, seguros, actas). */
+export interface DocumentoLegal {
+  id: string;
+  /** Categoría del catálogo cat.categoriasLegal (editable; seed con merge) */
+  categoria: string;
+  titulo: string;
+  /** Quién lo emite (ej. "estudio SUD", "Contratista Jesus") */
+  emisor: string;
+  /** A quién va dirigido (ej. "Cliente", "estudio SUD") */
+  destinatario: string;
+  /** Monto en ARS (presupuestos/contratos) */
+  monto?: number;
+  /** Fecha del documento ISO yyyy-mm-dd */
+  fechaDoc: string;
+  /** Vencimiento ISO yyyy-mm-dd (permisos/ART/seguros); "Vencido" se deriva, no se persiste */
+  fechaVenc?: string;
+  estado: EstadoLegal;
+  driveFileId?: string;
+  driveLink?: string;
+  notas?: string;
+}
+
+
+/* ===== Fase OBRA (H8a): diario de jornales, caja, compras y herramientas ===== */
+
+/** Jornales de un día de obra: cantidad de oficiales y ayudantes (soporta 0.5). */
+export interface JornalDia {
+  id: string;
+  /** Fecha ISO yyyy-mm-dd */
+  fecha: string;
+  /** Cantidad de oficiales del día (ej. 2, 1.5) */
+  of: number;
+  /** Cantidad de ayudantes del día (medio ayudante = 0.5) */
+  ay: number;
+  nota?: string;
+}
+
+/** Pago fijo semanal a una persona (ej. "Jesús 50.000/sem"). */
+export interface FijoSemanal {
+  id: string;
+  persona: string;
+  montoSemanal: number;
+}
+
+/** Adelanto a cuenta entregado durante la semana (se descuenta del pago del viernes). */
+export interface AdelantoPersonal {
+  id: string;
+  /** Fecha ISO yyyy-mm-dd */
+  fecha: string;
+  persona: string;
+  monto: number;
+}
+
+/** Diario de obra: jornales por día, fijos semanales y adelantos. */
+export interface DiarioObra {
+  /** Jornal DIARIO por obra (override); default = valor hora del catálogo × 8 */
+  tarifas?: { of: number; ay: number };
+  jornales: JornalDia[];
+  fijos: FijoSemanal[];
+  adelantos: AdelantoPersonal[];
+}
+
+/** Tipo de factura de un movimiento de caja ('sin' = sin factura). */
+export type FacturaTipo = 'A' | 'B' | 'C' | 'sin';
+
+/** Movimiento de la caja de obra (ingreso o egreso). */
+export interface MovimientoCaja {
+  id: string;
+  /** Fecha ISO yyyy-mm-dd */
+  fecha: string;
+  tipo: 'ingreso' | 'egreso';
+  monto: number;
+  descripcion: string;
+  /** Comercio o proveedor (ej. "FEROS", "volquetes") */
+  comercio?: string;
+  facturaTipo?: FacturaTipo;
+  /** Factura adjunta: archivo de la carpeta de Drive de la obra */
+  facturaFileId?: string;
+  facturaLink?: string;
+  /** Quién puso la plata: 'obra' | 'cliente' | contratista (nombre libre) */
+  pagadoPor?: string;
+  pagado: boolean;
+  categoria?: string;
+}
+
+/** Pedido/compra de material contra el cómputo (saldo regresivo). */
+export interface CompraMaterial {
+  id: string;
+  /** Fecha ISO yyyy-mm-dd */
+  fecha: string;
+  /** Código del material del catálogo */
+  matCod: string;
+  /** Cantidad pedida en unidad física del material */
+  cantidad: number;
+  /** Precio unitario REAL pagado (c/IVA, por unidad física) */
+  precioUnit?: number;
+  proveedor?: string;
+  remito?: string;
+  facturaFileId?: string;
+  facturaLink?: string;
+  nota?: string;
+}
+
+/** Herramienta llevada a la obra (para no perder nada al cierre). */
+export interface HerramientaEnObra {
+  id: string;
+  nombre: string;
+  cant: number;
+  /** Fecha ISO yyyy-mm-dd */
+  fechaIngreso: string;
+  devuelta: boolean;
+}
+
 export interface Catalogo {
   materiales: Material[];
   manoObra: ManoObra[];
@@ -70,6 +215,10 @@ export interface Catalogo {
   /** APUs editados por el usuario: blindados contra el merge del SEED */
   apusEditados: string[];
   divisiones?: string[];
+  /** Catálogo de tipos de plano para el registro de documentación (merge con seed) */
+  tiposPlano?: TipoPlano[];
+  /** Catálogo de categorías del legajo legal por obra (merge con seed) */
+  categoriasLegal?: string[];
 }
 
 /** SEED comprimido tal como viaja embebido (M/O/H/R/B como arrays posicionales) */
@@ -144,6 +293,18 @@ export interface Obra {
   plan?: PlanObra;
   precios?: PreciosObra;
   materialesConfig?: Record<string, MaterialConfigObra>;
+  /** Registro de documentación: revisiones de planos (vigencia derivada, no persistida) */
+  documentos?: DocumentoObra[];
+  /** Legajo legal: contratos, presupuestos, permisos, seguros, actas ("Vencido" derivado) */
+  legales?: DocumentoLegal[];
+  /** Fase OBRA (H8a): diario de jornales, fijos semanales y adelantos */
+  diario?: DiarioObra;
+  /** Fase OBRA (H8a): caja de obra (ingresos/egresos, balance derivado) */
+  caja?: MovimientoCaja[];
+  /** Fase OBRA (H8a): pedidos de materiales contra el cómputo (saldo regresivo) */
+  compras?: CompraMaterial[];
+  /** Fase OBRA (H8a): herramientas llevadas a la obra */
+  herramientasObra?: HerramientaEnObra[];
   [k: string]: unknown;
 }
 
