@@ -1,0 +1,187 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+
+/* ============================================================
+   IDENTIDAD SUD_estudio — tokens de diseño (H1)
+   Paleta extraída de la papelería del estudio (paleta.pdf +
+   esferas de obra). Tipografía: Acid Grotesk (Folch Studio)
+   para marca y títulos; Inter para UI y tablas numéricas.
+   ============================================================ */
+
+@font-face {
+  font-family: 'Acid Grotesk';
+  src: url('./assets/fonts/AcidGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* --- Marca --- */
+  --color-sud-naranja: #DC8A52;
+  --color-sud-oliva: #63704A;
+  --color-sud-azul: #78A6C0;
+  --color-sud-crema: #FDFAE7;
+  --color-sud-tan: #D9B798;
+  --color-sud-tinta: #1B1B18;
+
+  /* --- Neutros cálidos (derivados de la crema) --- */
+  --color-neutro-50: #FCFAF2;
+  --color-neutro-100: #F5F2E8;
+  --color-neutro-200: #E8E4D6;
+  --color-neutro-300: #D3CFC0;
+  --color-neutro-400: #A8A497;
+  --color-neutro-500: #7C7970;
+  --color-neutro-600: #5C5A53;
+  --color-neutro-700: #44423D;
+  --color-neutro-800: #2E2D29;
+  --color-neutro-900: #1B1B18;
+
+  /* --- Semánticos --- */
+  --color-ok: #63704A;
+  --color-alerta: #B4552D;
+  --color-info: #78A6C0;
+
+  /* --- Tipografía --- */
+  --font-marca: 'Acid Grotesk', 'Inter Variable', system-ui, sans-serif;
+  --font-ui: 'Inter Variable', system-ui, sans-serif;
+
+  /* --- Radios y sombras --- */
+  --radius-card: 0.75rem;
+  --shadow-suave: 0 1px 2px rgb(27 27 24 / 0.04), 0 4px 16px rgb(27 27 24 / 0.06);
+}
+
+/* La marca solo existe en Regular: nunca sintetizar negrita en Acid Grotesk */
+.font-marca {
+  font-family: var(--font-marca);
+  font-synthesis-weight: none;
+}
+
+:root {
+  color-scheme: light;
+  --fondo: var(--color-neutro-50);
+  --panel: #FFFFFF;
+  --borde: var(--color-neutro-200);
+  --texto: var(--color-neutro-900);
+  --texto-2: var(--color-neutro-500);
+}
+
+.dark {
+  color-scheme: dark;
+  --fondo: #171713;
+  --panel: #1F1F1A;
+  --borde: #33322B;
+  --texto: #F0EDE0;
+  --texto-2: #A8A497;
+}
+
+body {
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Números tabulares en toda tabla (presupuestos alineados) */
+table {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================
+   Aura de obra — motivo de marca (esfera difusa)
+   Uso: <div class="aura" style="--aura-color: var(--color-sud-naranja)">
+   ============================================================ */
+.aura {
+  background: radial-gradient(
+    circle at center,
+    var(--aura-color, var(--color-sud-naranja)) 0%,
+    color-mix(in srgb, var(--aura-color, var(--color-sud-naranja)) 55%, transparent) 42%,
+    transparent 72%
+  );
+}
+
+/* Degradado de papelería (fondo sutil de portadas / login) */
+.fondo-paleta {
+  background:
+    radial-gradient(120% 90% at 0% 0%, color-mix(in srgb, var(--color-sud-azul) 55%, transparent), transparent 60%),
+    radial-gradient(120% 90% at 100% 100%, color-mix(in srgb, var(--color-sud-tan) 65%, transparent), transparent 60%),
+    var(--color-sud-crema);
+}
+
+/* ============================================================
+   H6 — Salida para cliente: hoja A4 en pantalla + impresión
+   ============================================================ */
+
+/* En pantalla: el documento se ve como una hoja A4 flotando */
+.documento-print {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #ffffff;
+  color: var(--color-sud-tinta);
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgb(27 27 24 / 0.1), 0 16px 48px rgb(27 27 24 / 0.14);
+  padding: 56px 64px;
+}
+
+@page {
+  size: A4;
+  margin: 18mm;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+  }
+
+  /* Controles de la vista Imprimir y demás elementos marcados */
+  .no-print {
+    display: none !important;
+  }
+
+  /* El <aside> del Shell es el único de la app: se oculta sin tocar Shell.tsx
+     y el <main> recupera el ancho completo */
+  aside {
+    display: none !important;
+  }
+  main {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Al papel llega solo el documento (el resto del chrome — encabezado de
+     obra, tabs — queda invisible sin ocupar la página) */
+  body * {
+    visibility: hidden;
+  }
+  .documento-print,
+  .documento-print * {
+    visibility: visible;
+  }
+  .documento-print {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Saltos de página razonables: no cortar filas ni bloques chicos */
+  .documento-print tr {
+    break-inside: avoid;
+  }
+  .documento-print .doc-bloque {
+    break-inside: avoid;
+  }
+  .documento-print thead {
+    display: table-header-group;
+  }
+  .documento-print h2,
+  .documento-print h3 {
+    break-after: avoid;
+  }
+}
